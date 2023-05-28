@@ -1,0 +1,110 @@
+.table {
+    width: 100%;
+
+    &:not(:last-child) {
+        margin-bottom: 50px;
+    }
+
+    &-title {
+        font-family: var(--ff-montserat);
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 31px;
+        margin: 30px 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    tr {
+        display: grid;
+        justify-content: center;
+        grid-template: auto/repeat(2, 1fr);
+        padding: 22px 20px;
+
+        td {
+            text-align: center;
+            word-break: break-all;
+
+            @media (max-width: 590px) {
+                word-break: normal;
+            }
+        }
+
+        &:nth-child(even) {
+            background: var(--bg-green);
+            color: var(--color-white);
+            border-radius: 5px;
+
+            td {
+                font-weight: 700;
+
+                &:last-child {
+                    font-weight: 400;
+                }
+            }
+        }
+
+        &:nth-child(odd) {
+            background: transparent;
+            color: var(--color-primary);
+
+            td {
+                font-weight: 700;
+
+                &:last-child {
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    &-1 {
+
+        tr {
+            @media (max-width:590px) {
+                grid-template: auto/repeat(1, 1fr);
+            }
+        }
+    }
+
+    &-2 {
+        tr {
+            grid-template: auto/repeat(3, 1fr);
+
+            @media (max-width: 450px) {
+                grid-template: auto/repeat(1, 1fr);
+            }
+
+            &:nth-child(odd) td,
+            &:nth-child(even) td {
+                font-weight: 400;
+            }
+
+            td {
+                &:first-child {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    &-3 {
+        tr {
+            grid-template: auto/repeat(4, 1fr);
+            &:nth-child(odd) td,
+            &:nth-child(even) td {
+                font-weight: 400;
+            }
+
+            @media (max-width: 768px) {
+                grid-template: auto/repeat(2, 1fr);
+            }
+
+            td {
+                &:first-child {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
